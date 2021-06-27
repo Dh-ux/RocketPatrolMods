@@ -1,3 +1,4 @@
+//Display remaining time
 let config = {
 	type: Phaser.CANVAS,
 	width: 640,
