@@ -84,6 +84,40 @@ class Play extends Phaser.Scene {
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
 			this.scene.start('menuScene');
         });
+		this.input.on('pointerdown', function(pointer){
+
+            this.input.mouse.requestPointerLock();
+
+            if (!this.p1Rocket.isFiring && !this.gameOver && pointer.leftButtonDown()) {
+
+                this.p1Rocket.type = 0;
+                this.p1Rocket.isFiring = true;
+                this.p1Rocket.sfxRocket.play();
+
+            } else if (!this.p1Rocket.isFiring && !this.gameOver && pointer.rightButtonDown() && this.p1Rocket.rtypeNumber > 0) {
+
+                this.p1Rocket.isFiring = true;
+                this.p1Rocket.type = 1;
+                this.p1Rocket.setFlipY(true); 
+                this.p1Rocket.setScale(0.3);
+                this.p1Rocket.rtypeNumber--;
+                this.p1Rocket.sfxRocket.play();
+            }
+
+        }, this);
+
+        this.input.on('pointermove', function (pointer) {
+
+           
+
+                if (!this.p1Rocket.isFiring && !this.gameOver && this.input.mouse.locked) {
+
+                    this.p1Rocket.x += pointer.movementX;
+                    this.p1Rocket.x = Phaser.Math.Wrap(this.p1Rocket.x, 0, game.renderer.width);
+                }
+            
+
+        }, this);
 
 
 	}
