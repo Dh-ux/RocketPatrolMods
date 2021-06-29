@@ -1,5 +1,7 @@
-# RocketPatrolMods
-CMPM120
+//Lexin Xiong
+//CMPM120
+//Rocket Patrol Mods
+//get help from the video https://www.youtube.com/watch?v=teZavPHW4uQ
 //Display remaining time(10)
 //Create a new spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points(20)
 //Create new artwork for all of the in-game assets (rocket, spaceships, explosion)(20)
