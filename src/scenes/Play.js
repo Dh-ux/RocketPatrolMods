@@ -36,7 +36,7 @@ class Play extends Phaser.Scene {
 		this.ship01 = new Spaceship(this, game.config.width + borderUISize*6, borderUISize*4, 'spaceship', 0, 30).setOrigin(0, 0);
 		this.ship02 = new Spaceship(this, game.config.width + borderUISize*3, borderUISize*5 + borderPadding*2, 'spaceship', 0, 20).setOrigin(0,0);
 		this.ship03 = new Spaceship(this, game.config.width, borderUISize*6 + borderPadding*4, 'spaceship', 0, 10).setOrigin(0,0);
-		this.ship04 = new Spaceship2(this, game.config.width, 200, 'newspaceship', 0, 8).setScale(0.5, 0.5).setOrigin(0,0);
+		this.ship04 = new Spaceship2(this, game.config.width + 38, 215, 'newSpaceship', 0, 50).setScale(0.5, 0.5).setOrigin(0,0);
         
 		// define keys
 		keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
@@ -109,8 +109,8 @@ class Play extends Phaser.Scene {
 		// check collisions
 		if(this.checkCollision(this.p1Rocket, this.ship04)) {
 			this.p1Rocket.reset();
-		}
 			this.shipExplode(this.ship04); 
+		}	
 		if(this.checkCollision(this.p1Rocket, this.ship03)) {
 			this.p1Rocket.reset();
 			this.shipExplode(this.ship03);   
@@ -142,9 +142,9 @@ class Play extends Phaser.Scene {
 			let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0, 0);
 			boom.anims.play('explode');             // play explode animation
 			boom.on('animationcomplete', () => {    // callback after anim completes
-			  ship.reset();                         // reset ship position
-			  ship.alpha = 1;                       // make ship visible again
-			  boom.destroy();                       // remove explosion sprite
+			ship.reset();                         // reset ship position
+			ship.alpha = 1;                       // make ship visible again
+			boom.destroy();                       // remove explosion sprite
 			}); 
 			//score add and repaint
 			this.p1Score += ship.points;
