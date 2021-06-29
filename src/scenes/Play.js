@@ -65,7 +65,7 @@ class Play extends Phaser.Scene {
 
 		this.timerSeconds = game.settings.gameTimer / 1000;
         this.timeStart = this.time.now;
-		this.visTimer = this.add.text(game.config.width, 0, this.timerSeconds, scoreConfig).setOrigin(1,0);
+		this.disTimer = this.add.text(game.config.width, 0, this.timerSeconds, scoreConfig).setOrigin(1,0);
 
         this.cameras.main.fadeIn(500); 
 
@@ -90,7 +90,7 @@ class Play extends Phaser.Scene {
 			this.ship01.update();           // update spaceships (x3)
 			this.ship02.update();
 			this.ship03.update();
-			this.visTimer.text = this.timerSeconds - Math.round((this.time.now - this.timeStart) / 1000)
+			this.disTimer.text = this.timerSeconds - Math.round((this.time.now - this.timeStart) / 1000)
 		} 
 		// check collisions
 		if(this.checkCollision(this.p1Rocket, this.ship03)) {
