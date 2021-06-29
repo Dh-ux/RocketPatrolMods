@@ -3,6 +3,7 @@
 //Create new artwork for all of the in-game assets (rocket, spaceships, explosion)(20)
 //Allow the player to control the Rocket after it's fired(5)
 //Add your own (copyright-free) background music to the Play scene(5)
+//Implement mouse control for player movement and mouse click to fire (20)
 //
 let config = {
 	type: Phaser.CANVAS,

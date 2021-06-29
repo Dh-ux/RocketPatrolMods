@@ -84,6 +84,7 @@ class Play extends Phaser.Scene {
         this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
 			this.scene.start('menuScene');
         });
+		//mouse control 
 		this.input.on('pointerdown', function(pointer){
 
             this.input.mouse.requestPointerLock();
@@ -118,6 +119,7 @@ class Play extends Phaser.Scene {
             
 
         }, this);
+		//I looked at the video about phaser 3 tutorial cursors https://www.youtube.com/watch?v=teZavPHW4uQ
 
 
 	}
