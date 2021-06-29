@@ -12,8 +12,14 @@ class Play extends Phaser.Scene {
 		this.load.spritesheet('explosion', './assets/explosion.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9});
 	  }
 	create() {
-		let bgm = this.sound.add('BGM', { volume: 0.8, loop: true });
-        bgm.play();
+		this.bgm = this.sound.add('BGM', {
+            mute:false,
+            volume:0.5,
+            rate:1,
+            loop:true
+        });
+
+        this.bgm.play();
 		// place tile sprite
         this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0);
 		this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0xAEEEEE).setOrigin(0, 0);
@@ -81,7 +87,6 @@ class Play extends Phaser.Scene {
 	}
 	update() {
 		if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
-			this.bgm.update();
             this.scene.restart();
         }
 		if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
