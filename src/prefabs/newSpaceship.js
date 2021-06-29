@@ -13,6 +13,7 @@ class Spaceship2 extends Phaser.GameObjects.Sprite {
         this.x -= 7;
         // wraparound from left to right edge
         if (this.x <= 0-this.width) {
+
             this.reset();
         }
 
